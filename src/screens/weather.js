@@ -1,14 +1,14 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const weather = () => {
+const Weather = () => {
   return (
     <View>
-      <Image />
+      <Image source={require("../../assets/lobo0.png")}/>
     </View>
   )
 }
 
-export default weather
+export default Weather
 
 const styles = StyleSheet.create({})

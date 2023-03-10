@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     StyleSheet,
-    Text,
     View,
     Image,
     TextInput,
@@ -13,7 +12,18 @@ import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../constants/Colors.js";
 import { FontAwesome } from "@expo/vector-icons";
 
-const Intro = () => {
+const Intro = ({ onShowWeather }) => {
+    const [showWeather, setShowWeather] = useState(false);
+
+    const handlePress = () => {
+        setShowWeather(true);
+        onShowWeather();
+    };
+
+    if (showWeather) {
+        return null;
+    }
+
     return (
         <TouchableWithoutFeedback
             onPress={() => {
@@ -33,7 +43,7 @@ const Intro = () => {
                     />
                     <View style={styles.finder}>
                         <TextInput style={styles.input} placeholder="Ingresa tu ciudad" />
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity style={styles.button} onPress={handlePress}>
                             <FontAwesome name="search" size={24} color="white" />
                         </TouchableOpacity>
                     </View>
