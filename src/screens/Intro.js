@@ -13,6 +13,7 @@ import COLORS from "../constants/Colors.js";
 import { FontAwesome } from "@expo/vector-icons";
 
 const Intro = ({ onButtonPress }) => {
+    
   const handleButtonPress = () => {
     onButtonPress();
   };

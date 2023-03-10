@@ -1,12 +1,19 @@
-import { StyleSheet, Image, View } from 'react-native'
+import { StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const Weather = () => {
-  return (
-    <View>
-      <Image source={require("../../assets/lobo0.png")} style={styles.img} />
-    </View>
-  )
+const Weather = ({ onImgPress }) => {
+
+    const handleImgPress = () => {
+        onImgPress();
+    };
+
+    return (
+        <TouchableOpacity
+        onPress={handleImgPress}
+        >
+            <Image source={require("../../assets/lobo0.png")} style={styles.img} />
+        </TouchableOpacity>
+    )
 }
 
 export default Weather

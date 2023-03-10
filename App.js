@@ -21,6 +21,10 @@ export default function App() {
     setShowWeather(true);
   };
 
+  const handleImgPress = () => {
+    setShowWeather(false);
+  };
+
   React.useEffect(() => {
     if (fontsLoaded) {
       SplashScreen.hideAsync();
@@ -32,7 +36,7 @@ export default function App() {
       {!showWeather ? (
         <Intro onButtonPress={handleButtonPress} />
       ) : (
-        <Weather />
+        <Weather onImgPress={handleImgPress} />
       )}
     </View>
   );
