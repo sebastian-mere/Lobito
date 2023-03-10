@@ -15,10 +15,10 @@ export default function App() {
     "montserrat-black": require("./assets/fonts/Montserrat-Black.ttf"),
   });
 
-  const [searched, setSearched] = useState(false);
+  const [showWeather, setShowWeather] = useState(false);
 
-  const handleSearch = () => {
-    setSearched(true);
+  const handleButtonPress = () => {
+    setShowWeather(true);
   };
 
   React.useEffect(() => {
@@ -29,8 +29,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {!searched ? (
-        <Intro onSearch={handleSearch} />
+      {!showWeather ? (
+        <Intro onButtonPress={handleButtonPress} />
       ) : (
         <Weather />
       )}
