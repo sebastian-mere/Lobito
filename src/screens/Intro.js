@@ -12,11 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../constants/Colors.js";
 import { FontAwesome } from "@expo/vector-icons";
 
-const Intro = ({ onButtonPress }) => {
-    
-  const handleButtonPress = () => {
-    onButtonPress();
-  };
+const Intro = ({ navigation  }) => {
 
   return (
     <TouchableWithoutFeedback
@@ -42,7 +38,9 @@ const Intro = ({ onButtonPress }) => {
             />
             <TouchableOpacity
               style={styles.button}
-              onPress={handleButtonPress}
+              onPress={() => {
+                navigation.navigate('Weather')
+                }}
             >
               <FontAwesome name="search" size={24} color="white" />
             </TouchableOpacity>

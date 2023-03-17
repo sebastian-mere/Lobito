@@ -3,7 +3,7 @@ import React from 'react'
 
 const Forecast = () => {
   return (
-    <View>
+    <View style={styles.screen}>
       <Text>Forecast</Text>
     </View>
   )

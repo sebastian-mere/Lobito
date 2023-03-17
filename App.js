@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import Intro from "./src/screens/Intro";
+
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import Weather from "./src/screens/Weather";
+
+import AppNavigator from './src/navigators/AppNavigator';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,13 +33,7 @@ export default function App() {
   }, [fontsLoaded]);
 
   return (
-    <View style={styles.container}>
-      {!showWeather ? (
-        <Intro onButtonPress={handleButtonPress} />
-      ) : (
-        <Weather onImgPress={handleImgPress} />
-      )}
-    </View>
+    <AppNavigator />
   );
 }
 
