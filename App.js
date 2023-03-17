@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import React from 'react';
+import { StyleSheet } from "react-native";
 
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -16,21 +16,15 @@ export default function App() {
     "montserrat-black": require("./assets/fonts/Montserrat-Black.ttf"),
   });
 
-  const [showWeather, setShowWeather] = useState(false);
-
-  const handleButtonPress = () => {
-    setShowWeather(true);
-  };
-
-  const handleImgPress = () => {
-    setShowWeather(false);
-  };
-
   React.useEffect(() => {
     if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
+
+  if(!fontsLoaded){
+    return null;
+  }
 
   return (
     <AppNavigator />
