@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
         borderTopColor: "#fff",
         borderTopWidth: 3,
         backgroundColor: "#EE2A7B",
+        height: 60
     },
     tabBarIcon: {
         flex: 1,
