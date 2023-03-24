@@ -1,21 +1,22 @@
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack';
+
 import Intro from './../screens/Intro';
 import Weather from './../screens/Weather';
 import Forecast from './../screens/Forecast';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Intro">
+    
+      <Stack.Navigator initialRouteName="Intro"
+      screenOptions={{
+        headerShown: false
+    }}>
         <Stack.Screen name="Intro" component={Intro} />
-        <Stack.Screen name="Weather" component={Weather} />
-        <Stack.Screen name="Forecast" component={Forecast} />
       </Stack.Navigator>
-    </NavigationContainer>
+    
   )
 }
 

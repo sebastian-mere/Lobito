@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
-import AppNavigator from './src/navigators/AppNavigator';
+import MainNavigator from './src/navigators/MainNavigator';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,12 +22,12 @@ export default function App() {
     }
   }, [fontsLoaded]);
 
-  if(!fontsLoaded){
+  if (!fontsLoaded) {
     return null;
   }
 
   return (
-    <AppNavigator />
+    <MainNavigator />
   );
 }
 
