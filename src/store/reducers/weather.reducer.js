@@ -1,5 +1,7 @@
 import {
-    CURRENT_WEATHER,
+    CURRENT_WEATHER, 
+    CURRENT_WEATHER_REQUEST,
+    CURRENT_WEATHER_FAILURE
 } from '../actions/weather.action';
 
 const initialState = {
@@ -21,7 +23,7 @@ const weatherReducer = (state = initialState, action) => {
         case CURRENT_WEATHER:
             return {
                 ...state,
-                currentWeather: action.payload,
+                currentWeather,
                 loading: false,
             };
 
@@ -29,7 +31,7 @@ const weatherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: action.payload,
+                error,
             };
 
         default:

@@ -1,6 +1,6 @@
 export const CURRENT_WEATHER_REQUEST = 'CURRENT_WEATHER_REQUEST';
 import { API_URL } from './../../constants/Database';
-export const CURRENT_WEATHER_SUCCESS = 'CURRENT_WEATHER_SUCCESS';
+export const CURRENT_WEATHER = 'CURRENT_WEATHER';
 export const CURRENT_WEATHER_FAILURE = 'CURRENT_WEATHER_FAILURE';
 
 export const currentWeatherRequest = () => ({

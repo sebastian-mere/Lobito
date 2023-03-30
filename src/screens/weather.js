@@ -2,14 +2,18 @@ import { StyleSheet, Image, Text, View } from 'react-native'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-const dispatch = useDispatch()
-const currentWeather = useSelector(state => state.currentWeather)
 
-React.useEffect(()=>{
-  dispatch(getCurrentWeather())
-},[])
 
 const Weather = () => {
+
+  const dispatch = useDispatch()
+  const currentWeather = useSelector(state => state.currentWeather)
+  
+  console.log(currentWeather)
+
+  React.useEffect(()=>{
+    dispatch(getCurrentWeather())
+  },[])
 
   return (
     <View>
