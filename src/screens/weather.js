@@ -1,17 +1,24 @@
-import { StyleSheet, Image, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, Image, Text, View } from 'react-native'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-const Weather = ({ navigation }) => {
+const dispatch = useDispatch()
+const currentWeather = useSelector(state => state.currentWeather)
+
+React.useEffect(()=>{
+  dispatch(getCurrentWeather())
+},[])
+
+const Weather = () => {
 
   return (
-    <TouchableOpacity style={styles.screen}
-      onPress={() => {
-        navigation.navigate('Forecast')
-      }}
-    >
+    <View>
+      <Text>{currentWeather.name}</Text>
       <Image source={require("../../assets/lobo0.png")} style={styles.img} />
-      <Text>Ver pronóstico</Text>
-    </TouchableOpacity>
+      <Text>{currentWeather.main.temp} °C</Text>
+      <Text>{currentWeather.weather.description}</Text>
+      <Image source={{ uri: `http://openweathermap.org/img/w/${currentWeather.weather.icon}.png` }} />
+    </View>
   )
 }
 

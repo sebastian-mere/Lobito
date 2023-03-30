@@ -1,4 +1,5 @@
 node_modules/
+_materiales/
 .expo/
 dist/
 npm-debug.*

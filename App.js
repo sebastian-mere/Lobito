@@ -5,6 +5,8 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
 import MainNavigator from './src/navigators/MainNavigator';
+import { Provider } from 'react-redux';
+import store from './src/store/index';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -27,7 +29,9 @@ export default function App() {
   }
 
   return (
-    <MainNavigator />
+    <Provider store={store}>
+      <MainNavigator />
+    </Provider>
   );
 }
 
