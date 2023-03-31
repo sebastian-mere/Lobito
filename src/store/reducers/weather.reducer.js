@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     currentWeather: null,
-    loading: false,
+    loading: true,
     error: null,
 };
 

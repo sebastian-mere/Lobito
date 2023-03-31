@@ -16,6 +16,8 @@ export const currentWeatherFailure = (error) => ({
 export const getCurrentWeather = () => {
     return async dispatch => {
         try {
+            dispatch(currentWeatherRequest());
+
             const response = await fetch(API_URL,{
                 method: 'GET',
                 headers: {
@@ -27,13 +29,13 @@ export const getCurrentWeather = () => {
 
             const currentWeather = resData
 
-            console.log(currentWeather)
             dispatch({
                 type: CURRENT_WEATHER,
                 currentWeather
             });
         } catch (error) {
             console.log(error);
+            dispatch(currentWeatherFailure(error.message));
         }
     }
 }

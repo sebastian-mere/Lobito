@@ -2,6 +2,7 @@ import { StyleSheet, Image, Text, View, ActivityIndicator } from 'react-native';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentWeather } from '../store/actions/weather.action';
+import COLORS from '../constants/Colors';
 
 const Weather = () => {
 
@@ -9,17 +10,17 @@ const Weather = () => {
   const currentWeather = useSelector(state => state.weather.currentWeather);
   const loading = useSelector(state => state.weather.loading);
 
-console.log(currentWeather)
-console.log(loading)
-
   React.useEffect(()=>{
     dispatch(getCurrentWeather());
   },[]);
 
+  console.log(currentWeather)
+  console.log(loading)
+
   if (loading) {
     return (
       <View style={styles.screen}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color={COLORS.blue} />
       </View>
     );
   }
