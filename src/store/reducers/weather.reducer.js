@@ -25,7 +25,7 @@ const weatherReducer = (state = initialState, action) => {
         case CURRENT_WEATHER:
             return {
                 ...state,
-                currentWeather,
+                currentWeather: action.currentWeather,
                 loading: false,
                 error: null,
             };
