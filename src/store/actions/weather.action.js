@@ -1,4 +1,4 @@
-import { API_URL } from './../../constants/Database';
+import { API_KEY } from './../../constants/Database';
 
 export const CURRENT_WEATHER_REQUEST = 'CURRENT_WEATHER_REQUEST';
 export const CURRENT_WEATHER = 'CURRENT_WEATHER';
@@ -18,7 +18,7 @@ export const getCurrentWeather = () => {
         try {
             dispatch(currentWeatherRequest());
 
-            const response = await fetch(API_URL,{
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=buenos aires&appid=${API_KEY}&units=metric&lang=es`,{
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

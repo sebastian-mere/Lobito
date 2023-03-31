@@ -29,7 +29,7 @@ const Weather = () => {
     <View style={styles.screen}>
       <Text>{currentWeather.name}</Text>
       <Image source={require("../../assets/lobo0.png")} style={styles.img} />
-      <Text>{currentWeather.main.temp} °C</Text>
+      <Text>{Math.round(currentWeather.main.temp)} °C</Text>
       <Text>{currentWeather.weather[0].description}</Text>
       <Image source={{ uri: `http://openweathermap.org/img/w/01d.png` }} />
     </View>
