@@ -1,17 +1,17 @@
 import { API_URL } from './../../constants/Database';
 
-//export const CURRENT_WEATHER_REQUEST = 'CURRENT_WEATHER_REQUEST';
+export const CURRENT_WEATHER_REQUEST = 'CURRENT_WEATHER_REQUEST';
 export const CURRENT_WEATHER = 'CURRENT_WEATHER';
-//export const CURRENT_WEATHER_FAILURE = 'CURRENT_WEATHER_FAILURE';
+export const CURRENT_WEATHER_FAILURE = 'CURRENT_WEATHER_FAILURE';
 
-/*export const currentWeatherRequest = () => ({
+export const currentWeatherRequest = () => ({
   type: CURRENT_WEATHER_REQUEST,
 });
 
 export const currentWeatherFailure = (error) => ({
   type: CURRENT_WEATHER_FAILURE,
   payload: error,
-});*/
+});
 
 export const getCurrentWeather = () => {
     return async dispatch => {

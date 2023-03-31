@@ -1,8 +1,8 @@
 import {
-    CURRENT_WEATHER, 
-    //CURRENT_WEATHER_REQUEST,
-    //CURRENT_WEATHER_FAILURE
-} from '../actions/weather.action';
+    CURRENT_WEATHER,
+    CURRENT_WEATHER_REQUEST,
+    CURRENT_WEATHER_FAILURE,
+} from "../actions/weather.action";
 
 const initialState = {
     currentWeather: null,
@@ -10,18 +10,14 @@ const initialState = {
     error: null,
 };
 
-
-
 const weatherReducer = (state = initialState, action) => {
     switch (action.type) {
-
-        /*case CURRENT_WEATHER_REQUEST:
+        case CURRENT_WEATHER_REQUEST:
             return {
                 ...state,
                 loading: true,
                 error: null,
-            };*/
-
+            };
         case CURRENT_WEATHER:
             return {
                 ...state,
@@ -29,14 +25,12 @@ const weatherReducer = (state = initialState, action) => {
                 loading: false,
                 error: null,
             };
-
-        /*case CURRENT_WEATHER_FAILURE:
+        case CURRENT_WEATHER_FAILURE:
             return {
                 ...state,
                 loading: false,
-                error,
-            };*/
-
+                error: action.payload,
+            };
         default:
             return state;
     }
