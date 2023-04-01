@@ -31,7 +31,7 @@ const Weather = () => {
       <Image source={require("../../assets/lobo0.png")} style={styles.img} />
       <Text>{Math.round(currentWeather.main.temp)} °C</Text>
       <Text>{currentWeather.weather[0].description}</Text>
-      <Image source={{ uri: `http://openweathermap.org/img/w/01d.png` }} />
+      <Image source={{ uri: `http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png` }} style={styles.icono} />
     </View>
   );
 };
@@ -47,5 +47,9 @@ const styles = StyleSheet.create({
   img: {
     width: 300,
     height: 300
+  },
+  icono: {
+    width: 64,
+    height: 64
   }
 });

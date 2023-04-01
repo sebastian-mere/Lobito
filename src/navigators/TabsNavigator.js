@@ -12,14 +12,14 @@ const BottomTabs = createBottomTabNavigator()
 const TabsNavigator = () => {
     return (
         <BottomTabs.Navigator
-            initialRouteName='Intro'
+            initialRouteName='IntroTab'
             screenOptions={{
                 headerShown: false,
                 tabBarShowLabel: false,
                 tabBarStyle: styles.tabBar
             }}
         >
-            <BottomTabs.Screen name="Intro" component={AppNavigator}
+            <BottomTabs.Screen name="IntroTab" component={AppNavigator}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View style={styles.tabBarIcon}>
@@ -28,7 +28,7 @@ const TabsNavigator = () => {
                         </View>
                     )
                 }} />
-            <BottomTabs.Screen name="Weather" component={WeatherNavigator}
+            <BottomTabs.Screen name="WeatherTab" component={WeatherNavigator}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View style={styles.tabBarIcon}>

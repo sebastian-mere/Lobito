@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     width: 200,
     backgroundColor: "white",
     color: "black",
-    fontFamily: "montserrat-regular",
+    fontFamily: "montserrat-bold",
   },
   button: {
     backgroundColor: COLORS.blue,
