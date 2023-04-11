@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -11,8 +11,36 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../constants/Colors.js";
 import { FontAwesome } from "@expo/vector-icons";
+import { useDispatch } from 'react-redux';
+import { getCurrentWeather } from '../store/actions/weather.action';
+import LocationService from "../components/LocationService.js";
+import { API_KEY } from './../constants/Database';
 
 const Intro = ({ navigation }) => {
+
+  const [city, setCity] = useState("");
+  const [location, setLocation] = useState(null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (location) {
+      console.log(location)
+      fetch(
+        `https://api.openweathermap.org/geo/1.0/reverse?lat=${location.latitude}&lon=${location.longitude}&limit=1&appid=${API_KEY}`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          const city = data[0].name;
+          console.log(data)
+          setCity(city);
+        })
+        .catch((error) => console.error("GUARDA!: " + error));
+    }
+  }, [location]);
+
+  const handleLocation = (location) => {
+    setLocation(location);
+  };
 
   return (
     <TouchableWithoutFeedback
@@ -35,16 +63,20 @@ const Intro = ({ navigation }) => {
             <TextInput
               style={styles.input}
               placeholder="Ingresa tu ciudad"
+              value={city}
+              onChangeText={setCity}
             />
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
-                navigation.navigate('Weather')
+                dispatch(getCurrentWeather(city));
+                navigation.navigate("WeatherTab");
               }}
             >
               <FontAwesome name="search" size={24} color="white" />
             </TouchableOpacity>
           </View>
+          <LocationService onLocation={(location) => handleLocation(location)} />
         </View>
       </LinearGradient>
     </TouchableWithoutFeedback>
@@ -52,6 +84,7 @@ const Intro = ({ navigation }) => {
 };
 
 export default Intro;
+
 
 
 
