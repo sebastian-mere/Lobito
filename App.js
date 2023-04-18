@@ -6,7 +6,9 @@ import * as SplashScreen from "expo-splash-screen";
 
 import MainNavigator from './src/navigators/MainNavigator';
 import { Provider } from 'react-redux';
-import store from './src/store/index';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import { store, storePersisted } from './src/store/index';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -30,7 +32,9 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <MainNavigator />
+      <PersistGate loading={null} persistor={storePersisted}>
+        <MainNavigator />
+      </PersistGate>
     </Provider>
   );
 }

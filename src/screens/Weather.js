@@ -1,19 +1,12 @@
 import { StyleSheet, Image, Text, View, ActivityIndicator } from 'react-native';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCurrentWeather } from '../store/actions/weather.action';
+import { useSelector } from 'react-redux';
 import COLORS from '../constants/Colors';
 
 const Weather = () => {
 
-  const dispatch = useDispatch();
   const currentWeather = useSelector(state => state.weather.currentWeather);
   const loading = useSelector(state => state.weather.loading);
-
-  React.useEffect(()=>{
-    dispatch(getCurrentWeather());
-  },[]);
-
+  
   console.log(currentWeather)
   console.log(loading)
 
