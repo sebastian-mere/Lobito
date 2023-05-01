@@ -12,7 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../constants/Colors.js";
 import { FontAwesome } from "@expo/vector-icons";
 import { useDispatch } from 'react-redux';
-import { getCurrentWeather } from '../store/actions/weather.action';
+import { getCurrentWeather, getHoursWeather } from '../store/actions/weather.action';
 import LocationService from "../components/LocationService.js";
 import { API_KEY } from './../constants/Database';
 
@@ -70,6 +70,7 @@ const Intro = ({ navigation }) => {
               style={styles.button}
               onPress={() => {
                 dispatch(getCurrentWeather(city));
+                dispatch(getHoursWeather(city))
                 navigation.navigate("WeatherTab");
               }}
             >
