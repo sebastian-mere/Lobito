@@ -32,12 +32,13 @@ const Intro = ({ navigation }) => {
         .then((data) => {
           const city = data[0].local_names.es;
           const cityEn = data[0].name;
-          console.log(data[0].name);
-          console.log(data[0].local_names.es);
+          
+          if (!city && !cityEn) {return (Alert.alert("Error", "Ocurrió un error, por favor ingrese la ciudad manualmente"));}
+          
           city ? setCity(city) : setCity(cityEn)
           
         })
-        .catch((error) => console.error("GUARDA!: " + error));
+        .catch((error) => console.error("ERROR!: " + error));
     }
   }, [location]);
 

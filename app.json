@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "lobito",
-    "slug": "lobito",
+    "name": "Lobito del Tiempo",
+    "slug": "lobito-del-tiempo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#8B3487"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,11 +20,18 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.sebastian.mere.lobitodeltiempo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a168376c-0b00-449f-a41a-fbfc0763a9ee"
+      }
+    },
+    "owner": "sebastian.mere"
   }
 }
