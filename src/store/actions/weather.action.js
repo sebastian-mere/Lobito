@@ -71,7 +71,7 @@ export const getHoursWeather = (city) => {
                 const forecastDate = new Date(forecast.dt_txt);
                 const currentDate = new Date();
                 const hoursDifference = (forecastDate - currentDate) / 1000 / 60 / 60;
-                return hoursDifference >= 0 && hoursDifference <= 12;
+                return hoursDifference >= 0 && hoursDifference <= 120;
             });
 
             dispatch({

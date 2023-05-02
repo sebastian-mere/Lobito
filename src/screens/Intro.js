@@ -7,31 +7,31 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../constants/Colors.js";
 import { FontAwesome } from "@expo/vector-icons";
-import { useDispatch } from 'react-redux';
-import { getCurrentWeather, getHoursWeather } from '../store/actions/weather.action';
+import { useDispatch } from "react-redux";
+import { getCurrentWeather, getHoursWeather } from "../store/actions/weather.action";
 import LocationService from "../components/LocationService.js";
-import { API_KEY } from './../constants/Database';
+import { API_KEY } from "./../constants/Database";
 
 const Intro = ({ navigation }) => {
-
   const [city, setCity] = useState("");
   const [location, setLocation] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (location) {
-      console.log(location)
+      console.log(location);
       fetch(
         `https://api.openweathermap.org/geo/1.0/reverse?lat=${location.latitude}&lon=${location.longitude}&limit=1&appid=${API_KEY}`
       )
         .then((response) => response.json())
         .then((data) => {
           const city = data[0].name;
-          console.log(data)
+          console.log(data);
           setCity(city);
         })
         .catch((error) => console.error("GUARDA!: " + error));
@@ -40,6 +40,14 @@ const Intro = ({ navigation }) => {
 
   const handleLocation = (location) => {
     setLocation(location);
+  };
+
+  const validateCity = () => {
+    if (city.trim() === "") {
+      Alert.alert("Error", "Por favor, ingrese una ciudad");
+      return false;
+    }
+    return true;
   };
 
   return (
@@ -69,15 +77,19 @@ const Intro = ({ navigation }) => {
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
-                dispatch(getCurrentWeather(city));
-                dispatch(getHoursWeather(city))
-                navigation.navigate("WeatherTab");
+                if (validateCity()) {
+                  dispatch(getCurrentWeather(city));
+                  dispatch(getHoursWeather(city));
+                  navigation.navigate("WeatherTab");
+                }
               }}
             >
               <FontAwesome name="search" size={24} color="white" />
             </TouchableOpacity>
           </View>
-          <LocationService onLocation={(location) => handleLocation(location)} />
+          <LocationService
+            onLocation={(location) => handleLocation(location)}
+          />
         </View>
       </LinearGradient>
     </TouchableWithoutFeedback>
