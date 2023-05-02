@@ -44,7 +44,7 @@ const Weather = () => {
           <Lobito />
           <View style={styles.dataContainer}>
             <Text style={[styles.data, { fontSize: normalize(32), paddingVertical: normalize(5) }]}><MaterialCommunityIcons name="thermometer" size={normalize(28)} color="white" />{Math.round(currentWeather.main.temp)}°C</Text>
-            <Text style={[styles.data, { fontSize: normalize(32), paddingVertical: normalize(5) }]}><MaterialCommunityIcons name="water" size={normalize(28)} color="white" />{Math.round(currentWeather.main.humidity)}%</Text>
+            <Text style={[styles.data, { fontSize: normalize(32), paddingVertical: normalize(5) }]}><MaterialCommunityIcons name="water" size={normalize(28)} color={COLORS.blue} />{Math.round(currentWeather.main.humidity)}%</Text>
             <Text style={[styles.data, { fontSize: normalize(32), paddingVertical: normalize(5) }]}><MaterialCommunityIcons name="weather-windy" size={normalize(28)} color="white" />{Math.round(currentWeather.wind.speed)} km/h</Text>
           </View>
           <Phrases />

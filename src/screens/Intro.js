@@ -30,9 +30,12 @@ const Intro = ({ navigation }) => {
       )
         .then((response) => response.json())
         .then((data) => {
-          const city = data[0].name;
-          console.log(data);
-          setCity(city);
+          const city = data[0].local_names.es;
+          const cityEn = data[0].name;
+          console.log(data[0].name);
+          console.log(data[0].local_names.es);
+          city ? setCity(city) : setCity(cityEn)
+          
         })
         .catch((error) => console.error("GUARDA!: " + error));
     }

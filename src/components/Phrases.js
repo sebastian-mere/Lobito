@@ -98,7 +98,7 @@ const Phrases = () => {
             phrase = getMistPhrase();
             break;
         default:
-            ""
+            "..."
             break;
     }
 
