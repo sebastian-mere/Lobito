@@ -74,27 +74,35 @@ const Phrases = () => {
         return phrases[randomIndex];
     };
 
-    switch (currentWeather.weather[0].description) {
-        case "clear sky":
+    switch (currentWeather.weather[0].icon) {
+        case "01d":
+        case "01n":
             phrase = getClearPhrase();
             break;
-        case "few clouds":
+        case "02d":
+        case "02n":
             phrase = getFewCloudsPhrase();
             break;
-        case "overcast clouds":
-        case "scattered clouds":
-        case "broken clouds":
+        case "03d":
+        case "03n":
+        case "04d":
+        case "04n":
             phrase = getCloudsPhrase();
             break;
-        case "shower rain":
-        case "rain":
-        case "thunderstorm":
+        case "09d":
+        case "09n":
+        case "10d":
+        case "10n":
+        case "11d":
+        case "11n":
             phrase = getRainPhrase();
             break;
-        case "snow":
+        case "13d":
+        case "13n":
             phrase = getSnowPhrase();
             break;
-        case "mist":
+        case "50d":
+        case "50n":
             phrase = getMistPhrase();
             break;
         default:

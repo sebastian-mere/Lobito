@@ -15,6 +15,8 @@ const Weather = () => {
   const currentWeather = useSelector(state => state.weather.currentWeather);
   const loading = useSelector(state => state.weather.loading);
 
+console.log(currentWeather)
+
   console.log(currentWeather.cod)
 
   if (loading) {

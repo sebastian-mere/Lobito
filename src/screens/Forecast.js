@@ -13,8 +13,6 @@ const Forecast = () => {
   const hoursWeather = useSelector(state => state.weather.hoursWeather);
   const loading = useSelector(state => state.weather.loading);
 
-  console.log(hoursWeather)
-
   if (loading) {
     return (
       <View style={styles.screen}>
