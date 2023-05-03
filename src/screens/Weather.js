@@ -15,10 +15,6 @@ const Weather = () => {
   const currentWeather = useSelector(state => state.weather.currentWeather);
   const loading = useSelector(state => state.weather.loading);
 
-console.log(currentWeather)
-
-  console.log(currentWeather.cod)
-
   if (loading) {
     return (
       <View style={styles.screen}>
@@ -36,6 +32,28 @@ console.log(currentWeather)
       </ImageBackground>
     );
   } else {
+
+    const weatherIcons = {
+      '01d': 'weather-sunny',
+      '02d': 'weather-partly-cloudy',
+      '03d': 'weather-partly-cloudy',
+      '04d': 'weather-cloudy',
+      '09d': 'weather-rainy',
+      '10d': 'weather-pouring',
+      '11d': 'weather-lightning',
+      '13d': 'weather-snowy',
+      '50d': 'weather-fog',
+      '01n': 'weather-night',
+      '02n': 'weather-night-partly-cloudy',
+      '03n': 'weather-night-partly-cloudy',
+      '04n': 'weather-cloudy',
+      '09n': 'weather-rainy',
+      '10n': 'weather-pouring',
+      '11n': 'weather-lightning',
+      '13n': 'weather-snowy',
+      '50n': 'weather-fog',
+    };
+
     return (
       <BackgroundImage currentWeather={currentWeather}>
         <View style={styles.screen}>
@@ -45,8 +63,8 @@ console.log(currentWeather)
           </View>
           <Lobito />
           <View style={styles.dataContainer}>
-            <Text style={[styles.data, { fontSize: normalize(32), paddingVertical: normalize(5) }]}><MaterialCommunityIcons name="thermometer" size={normalize(28)} color="white" />{Math.round(currentWeather.main.temp)}°C</Text>
-            <Text style={[styles.data, { fontSize: normalize(32), paddingVertical: normalize(5) }]}><MaterialCommunityIcons name="water" size={normalize(28)} color={COLORS.blue} />{Math.round(currentWeather.main.humidity)}%</Text>
+            <Text style={[styles.data, { fontSize: normalize(32), paddingVertical: normalize(5) }]}><MaterialCommunityIcons name={weatherIcons[currentWeather.weather[0].icon]} size={normalize(28)} color="white" />{Math.round(currentWeather.main.temp)}°C</Text>
+            <Text style={[styles.data, { fontSize: normalize(32), paddingVertical: normalize(5) }]}><MaterialCommunityIcons name="water-percent" size={normalize(28)} color={COLORS.blue} />{Math.round(currentWeather.main.humidity)}%</Text>
             <Text style={[styles.data, { fontSize: normalize(32), paddingVertical: normalize(5) }]}><MaterialCommunityIcons name="weather-windy" size={normalize(28)} color="white" />{Math.round(currentWeather.wind.speed)} km/h</Text>
           </View>
           <Phrases />
